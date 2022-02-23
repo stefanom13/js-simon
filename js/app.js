@@ -12,7 +12,7 @@ const min = 1;
 const max = 90;
 const numeridaIndovinare = [];
 const numeriUser = [];
-
+const numeriIndovinati = [];
 
 do {
     const number = getRandomInt(min, max);
@@ -29,7 +29,7 @@ console.log(numeridaIndovinare);
 alert( ` Memorizza questi 5 numeri ; ${numeridaIndovinare.join(', ')}`)
 
 
-// dopo 2 secondi chiedere all utente 5 numeri
+// dopo 3 secondi chiedere all utente 5 numeri
 // (mettere set timeout sotto alert)
 setTimeout ( () => {
     
@@ -38,10 +38,14 @@ setTimeout ( () => {
         const num = parseInt(prompt (`Inserisci un numero compreso tra  ${min} e  ${max}`) );
         numeriUser.push(num);
 
+        if (numeridaIndovinare.includes(num)) {
+            numeriIndovinati.push( num );
+        } 
+
     } while (numeriUser.length < numeridaIndovinare.length);
 
-    console.log(numeriUser);
+    console.log(numeriUser,numeriIndovinati);
 
-}, 2000 );
+}, 3000 );
 
 // dire all user  quanti e quali numeri ha indovinato
