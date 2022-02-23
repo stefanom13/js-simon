@@ -21,31 +21,39 @@ do {
         numeridaIndovinare.push(number);
 
     }
-} while ( numeridaIndovinare.length < 5 );
+} while (numeridaIndovinare.length < 5);
 
 console.log(numeridaIndovinare);
 
 
-alert( ` Memorizza questi 5 numeri ; ${numeridaIndovinare.join(', ')}`)
+alert(` Memorizza questi 5 numeri ; ${numeridaIndovinare.join(', ')}`)
 
 
 // dopo 3 secondi chiedere all utente 5 numeri
 // (mettere set timeout sotto alert)
-setTimeout ( () => {
-    
+setTimeout(() => {
+
     do {
 
-        const num = parseInt(prompt (`Inserisci un numero compreso tra  ${min} e  ${max}`) );
+        const num = parseInt(prompt(`Inserisci un numero compreso tra  ${min} e  ${max}`));
         numeriUser.push(num);
 
-        if (numeridaIndovinare.includes(num)) {
-            numeriIndovinati.push( num );
-        } 
+        // calcoli numeri indovinati
+
+        if (numeridaIndovinare.includes(num) && !numeriIndovinati.includes(num)) {
+            numeriIndovinati.push(num);
+
+        }
 
     } while (numeriUser.length < numeridaIndovinare.length);
 
-    console.log(numeriUser,numeriIndovinati);
+    console.log(numeriUser, numeriIndovinati);
+    // dire all user  quanti e quali numeri indovinato    
 
-}, 3000 );
+    alert(`Congratulazioni, hai indovinato i seguenti numeri : ${numeriIndovinati.join(', ')}`)
+    
+}, 3000);
 
-// dire all user  quanti e quali numeri ha indovinato
+
+
+
